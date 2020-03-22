@@ -21,8 +21,10 @@
             @foreach($tasks as $task)
             <li>
                 <img src="image/{{ $task->imgpath }}" alt="" class="content">
+                <!-- ifでdone判定　btnの追加か否か -->
                 <div id="mypage-btn">
-                    <a href="#" id="edit">編集</a>
+                    <a href="/edit/{{$task->task_id}}" id="edit">編集</a>
+                    <p>{{$task->task_id}}</p>
                     <a href="" id="done">達成</a>
                 </div>
             </li>

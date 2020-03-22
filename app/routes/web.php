@@ -18,9 +18,14 @@ Route::get('/', function () {
 });
 Route::get('/', 'TaskController@index');
 
+
 Route::get('/top', 'TaskController@top_login');
 
+
+
 Route::get('/mypage', 'TaskController@mypage');
+
+Route::get('/edit/{task_id}','TaskController@edit');
 
 Auth::routes();
 

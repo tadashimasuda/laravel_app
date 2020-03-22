@@ -22,4 +22,8 @@ class TaskController extends Controller
        $tasks = Task::all(); 
        return view('mypage',['tasks' => $tasks]);
    }
+   public function edit($task_id){
+       $task = Task::where('task_id',$task_id)->first();
+       return view('edit',['task'=>$task]);
+   }
 }
