@@ -7,11 +7,17 @@
 @endsection
 
 @section('main')
-<p>{{ $task->task_id }}</p>
-<h1>編集する</h1>
+<h1 id="edit-h1">編集する</h1>
 <form action="/update/{{ $task->task_id }}" method="POST">
     @csrf
-    <input type="text">
-    <input type="submit">
+    <ul id="edit-form">
+        <li>
+            <input type="text" id="edit-text">
+        </li>
+        <li>
+            <input type="submit" id="edit-btn">
+        </li>
+    </ul>
 </form>
 @endsection
+
