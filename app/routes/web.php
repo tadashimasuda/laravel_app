@@ -18,6 +18,9 @@ Route::get('/', function () {
 });
 Route::get('/', 'TaskController@index');
 
+Route::get('/top', 'TaskController@top_login');
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
