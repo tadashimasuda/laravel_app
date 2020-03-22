@@ -203,3 +203,64 @@ div#top_login_center-title h3{
     background: #000;
     padding-left: 80px;
 }
+
+
+
+/* 
+===========================
+    mypage
+===========================
+*/
+
+div#mypage_top{
+    text-align: center;
+    height: auto;
+    max-width: 100%;
+    padding-top: 50px;
+}
+div#mypage_top h1{
+    font-family: AppleSystemUIFont;
+    font-weight: normal;
+    font-size: 25px;
+    color: #000;
+}
+div#mypage_top h2{
+    font-family: AppleSystemUIFont;
+    font-weight: normal;
+    font-size: 23px;
+    text-align: center;
+    color: #000;
+}
+div#mypage-contents{
+    max-width: 100%;
+    height: auto;
+}
+div#mypage-user{
+    display: flex;
+    justify-content: center;
+    margin: 10px 0px;
+}
+div#mypage-btn{
+    display: flex;
+    justify-content: flex-end;
+    text-decoration: none;
+}
+div#mypage-btn a{
+    display: inline-block;
+    width: 44.66px;
+    height: 22px;
+    border: 1px solid #707070;
+    border-radius: 2em;
+    text-decoration: none;
+    text-align: center;
+    font-family: "Arial Rounded MT Bold";
+    font-size: 10px;
+    color: #ffffff;
+    line-height: 22px;
+}
+a#edit{
+    background: #e54616;
+}
+a#done{
+    background: #1616e5;
+}

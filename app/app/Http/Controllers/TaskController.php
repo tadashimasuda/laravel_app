@@ -17,5 +17,9 @@ class TaskController extends Controller
        $tasks = Task::all(); 
        return view('top_login',['tasks' => $tasks]);
    }
-
+   public function mypage() //追加
+   {
+       $tasks = Task::all(); 
+       return view('mypage',['tasks' => $tasks]);
+   }
 }
