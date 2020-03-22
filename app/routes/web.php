@@ -20,6 +20,7 @@ Route::get('/', 'TaskController@index');
 
 Route::get('/top', 'TaskController@top_login');
 
+Route::get('/mypage', 'TaskController@mypage');
 
 Auth::routes();
 

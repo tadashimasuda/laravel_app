@@ -23,20 +23,15 @@
     <div id="contents">
         <h2>みんなの目標</h2>
         <ul>
+            @foreach($tasks as $task)
             <li>
                 <div class="user">
                     <img src="image/user_pic.jpg" alt="" class="user_pic">
                     <p class="user_name">Tanaka</p>
                 </div>
-                <img src="image/sample.jpg" alt="" class="content">
+                <img src="image/{{ $task->imgpath }}" alt="" class="content">
             </li>
-            <li>
-                <div class="user">
-                    <img src="image/user_pic.jpg" alt="" class="user_pic">
-                    <p class="user_name">Suzuki</p>
-                </div>
-                <img src="image/sample.jpg" alt="" class="content">
-            </li>
+            @endforeach
         </ul>
     </div>
 @endsection
