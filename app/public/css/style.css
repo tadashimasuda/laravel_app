@@ -271,7 +271,7 @@ edit.blade.php
 =======================
 */
 
-h1#edit-h1{
+h1#create-edit-h1{
     text-align: center;
     font-family: "Arial Rounded MT Bold";
     font-weight: normal;
@@ -280,12 +280,12 @@ h1#edit-h1{
     color: #000;
     padding-top: 30px;
 }
-ul#edit-form{
+ul#create-edit-form{
     text-align: center;
     min-height: 1024px;
 }
 
-input#edit-text{
+input#create-edit-text{
     width: 276px;
     max-width: 100%;
     height: 158px;
@@ -293,11 +293,22 @@ input#edit-text{
     border: 1px solid #707070;
     margin-top: 30px;
 }
-input#edit-btn{
+input#create-edit-btn{
     width: 207.18px;
     height: 56.41px;
     border-radius: 21px;
     background: #fff502;
     border: 1px solid #707070;
     margin-top: 30px;
+}
+
+/* 
+===========================
+    create.blade.php
+===========================
+*/
+select#create-edit-select{
+    margin-top: 20px;
+    height: 30px;
+    width: 100px;
 }

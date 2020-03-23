@@ -25,6 +25,7 @@ Route::get('/edit/{task_id}','TaskController@edit');
 Route::get('/task/create',function(){
     return view('create');
 });
+Route::post('task/create','TaskController@','create');
 
 
 Auth::routes();
