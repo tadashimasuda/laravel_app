@@ -16,16 +16,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/', 'TaskController@index');
+Route::get('/', 'TasksController@index');
 
 
-Route::get('/top', 'TaskController@top_login');
-Route::get('/mypage', 'TaskController@mypage');
-Route::get('/edit/{task_id}','TaskController@edit');
+Route::get('/top', 'TasksController@top_login');
+Route::get('/mypage', 'TasksController@mypage');
+Route::get('/edit/{task_id}','TasksController@edit');
 Route::get('/task/create',function(){
     return view('create');
 });
-Route::post('task/create','TaskController@','create');
+Route::post('task/create','TasksController@store')->name('tasks.store');
 
 
 Auth::routes();

@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Task;
 use Illuminate\Http\Request;
-class TaskController extends Controller
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
+
+class TasksController extends Controller
 {
     //
     public function index() //追加
@@ -26,8 +29,15 @@ class TaskController extends Controller
        $task = Task::where('task_id',$task_id)->first();
        return view('edit',['task'=>$task]);
    }
-   public function create(){
-        
+   public function store(Request $request){
+        //storage_pathを通すとできない
+        //理想系
+        $path = public_path('image/sample.jpg');
+        $img = Image::make($path);
+        $img->resize(500, 500);
+        $save_path = public_path('image/sampleaaa.jpg');
+        $img->save($save_path);
+        return view('test',['request'=>$request]);
 }
 
 }

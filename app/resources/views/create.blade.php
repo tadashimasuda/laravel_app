@@ -8,7 +8,8 @@
 
 @section('main')
 <h1 id="create-edit-h1">投稿する</h1>
-<form action="/task/create" method="POST">
+
+<form action="{{ route('tasks.store') }}" method="POST">
     @csrf
     <ul id="create-edit-form">
         <li>
@@ -19,7 +20,7 @@
            </select>
         </li>
         <li>
-            <input type="text" id="create-edit-text">
+            <input type="text" name=text id="create-edit-text">
         </li>
         <li>
             <input type="submit" id="create-edit-btn">
