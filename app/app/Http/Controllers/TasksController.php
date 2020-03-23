@@ -30,12 +30,12 @@ class TasksController extends Controller
        return view('edit',['task'=>$task]);
    }
    public function store(Request $request){
-        //storage_pathを通すとできない
-        //理想系
-        $path = public_path('image/sample.jpg');
-        $img = Image::make($path);
-        $img->resize(500, 500);
-        $save_path = public_path('image/sampleaaa.jpg');
+        $img = Image::canvas(218,157,'#FFF502');
+        $img->rectangle(0, 0,  218,157, function ($draw) {
+            $draw->background('#FFF502');
+            $draw->border(12, '#707070');
+        });
+        $save_path = public_path('image/samplea1aea.jpg');
         $img->save($save_path);
         return view('test',['request'=>$request]);
 }
