@@ -31,14 +31,14 @@ class TasksController extends Controller
         $task = Task::where('task_id', $task_id)->first();
         return view('edit', ['task' => $task]);
     }
-    public function store(Request $request,Task $task)
-    {
+    //画像生成関数
+    private static function makeImg($text){
         $img = Image::canvas(218, 157, '#000');
         $img->rectangle(0, 0,  218, 157, function ($draw) {
                  $draw->background('#FFF502');
                  $draw->border(12, '#707070');
              });
-        $img->text($request->text, 100, 100, function ($font) {
+        $img->text($text, 100, 100, function ($font) {
             $font->file('fonts/SawarabiGothic-Regular.ttf');
             $font->size(10);
             $font->align('center');
@@ -47,8 +47,26 @@ class TasksController extends Controller
         $save_path = public_path('image/'.date('Y-m-d H:m:s').'.jpg');
         $img->save($save_path);
 
-        $task->addTask($request,$save_path);        
+        return $save_path;
+    }
+
+    public function store(Request $request,Task $task)
+    {
+        $path = self::makeImg($request->text);
+        
+        $task->addTask($request,$path);        
         
         return redirect('/');
+    }
+    
+
+    public function update(Request $request,Task $task){
+        //where句   where('task_id',$request->task_id)->get();
+        
+        
+        $path =self:: makeImg($request->text);
+        $task->updateTask($request,$path);
+        return redirect('/');
+        
     }
 }

@@ -26,7 +26,7 @@ Route::get('/task/create',function(){
     return view('create');
 });
 Route::post('task/create','TasksController@store')->name('tasks.store');
-
+Route::post('task/update','TasksController@update')->name('tasks.update');
 
 Auth::routes();
 

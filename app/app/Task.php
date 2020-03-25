@@ -23,5 +23,12 @@ class Task extends Model
         $task->good=0;
         $task->save();
     }
+    public function updateTask($request,$save_path){
+       
+
+        $task = Task::where('task_id',$request->task_id)->update(['content' => $request->text ,'imgpath'=>$save_path]);
+        
+        // $task->save();
+    }
     
 }
