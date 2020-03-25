@@ -27,7 +27,7 @@ Route::get('/task/create',function(){
 });
 Route::post('task/create','TasksController@store')->name('tasks.store');
 Route::post('task/update','TasksController@update')->name('tasks.update');
-
+Route::put('task/achieve','TasksController@achieve')->name('tasks.achieve');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

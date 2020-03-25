@@ -32,41 +32,55 @@ class TasksController extends Controller
         return view('edit', ['task' => $task]);
     }
     //画像生成関数
-    private static function makeImg($text){
+    private static function makeImg($text)
+    {
         $img = Image::canvas(218, 157, '#000');
         $img->rectangle(0, 0,  218, 157, function ($draw) {
-                 $draw->background('#FFF502');
-                 $draw->border(12, '#707070');
-             });
+            $draw->background('#FFF502');
+            $draw->border(12, '#707070');
+        });
         $img->text($text, 100, 100, function ($font) {
             $font->file('fonts/SawarabiGothic-Regular.ttf');
             $font->size(10);
             $font->align('center');
             $font->color('#000');
         });
-        $save_path = public_path('image/'.date('Y-m-d H:m:s').'.jpg');
+        $save_path = public_path('image/' . date('Y-m-d H:m:s') . '.jpg');
         $img->save($save_path);
 
         return $save_path;
     }
 
-    public function store(Request $request,Task $task)
+    public function store(Request $request, Task $task)
     {
         $path = self::makeImg($request->text);
-        
-        $task->addTask($request,$path);        
-        
+
+        $task->addTask($request, $path);
+
         return redirect('/');
     }
-    
 
-    public function update(Request $request,Task $task){
-        //where句   where('task_id',$request->task_id)->get();
-        
-        
-        $path =self:: makeImg($request->text);
-        $task->updateTask($request,$path);
+
+    public function update(Request $request, Task $task)
+    {   //画像パスを取得
+        $path = self::makeImg($request->text);
+        $task->updateTask($request, $path);
         return redirect('/');
-        
+    }
+    //完了画像生成
+    private static function achieveImg(Request $request, Task $task){
+        //今までの画像を取得
+        //フィルターかける
+        //保存
+        //return save_path
+    }
+
+
+    public function achieve(Request $request,Task $task){
+        //画像パスを取得
+        $path = self::achieveImg($request->text);
+        //db保存
+        $task->achieveTask($request, $path);
+        return redirect('/mypage');
     }
 }

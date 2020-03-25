@@ -25,7 +25,12 @@
                 <div id="mypage-btn">
                     <a href="/edit/{{$task->task_id}}" id="edit">編集</a>
                     <p>{{$task->task_id}}</p>
-                    <a href="" id="done">達成</a>
+                    <form action="/task/achieve" method="POST">
+                    @csrf
+                    @method("PUT")
+                    <input type="hidden" name="task_id" value="{{$task->task_id}}">
+                    <input type="submit" value="完了">
+                </form>
                 </div>
             </li>
             @endforeach

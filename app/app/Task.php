@@ -25,10 +25,11 @@ class Task extends Model
     }
     public function updateTask($request,$save_path){
        
-
         $task = Task::where('task_id',$request->task_id)->update(['content' => $request->text ,'imgpath'=>$save_path]);
         
-        // $task->save();
+    }
+    public function achieveTask(){
+        
     }
     
 }
