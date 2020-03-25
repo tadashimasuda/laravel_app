@@ -13,7 +13,7 @@
     @csrf
     <ul id="create-edit-form">
         <li>
-           <select name="category" id="create-edit-select">
+           <select name="categoryId" id="create-edit-select">
                <option value="1">学習</option>
                <option value="2">スポーツ</option>
                <option value="3">タスク処理</option>
