@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Task;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -45,10 +46,11 @@ class TasksController extends Controller
             $font->align('center');
             $font->color('#000');
         });
-        $save_path = public_path('image/' . date('Y-m-d H:m:s') . '.jpg');
-        $img->save($save_path);
+        $path = 'image/' . date('Y-m-d H:m:s') . '.jpg';
+        $save = public_path($path);
+        $img->save($save);
 
-        return $save_path;
+        return $path;
     }
 
     public function store(Request $request, Task $task)
@@ -62,23 +64,42 @@ class TasksController extends Controller
 
 
     public function update(Request $request, Task $task)
-    {   //画像パスを取得
+    {   //画像を生成してパスを取得
         $path = self::makeImg($request->text);
         $task->updateTask($request, $path);
         return redirect('/');
     }
     //完了画像生成
-    private static function achieveImg(Request $request, Task $task){
-        //今までの画像を取得
-        //フィルターかける
+    private static function achieveImg($request,Task $task){
+        //画像のパスを持ってくる　idで一致
+        $path = $task->achieveImg($request->task_id);
         //保存
         //return save_path
     }
 
 
-    public function achieve(Request $request,Task $task){
-        //画像パスを取得
-        $path = self::achieveImg($request->text);
+    public function achieve(Request $request){
+        //dbから画像パスを取得
+        $task = new Task();
+        $reqTask=$task->getPath($request);
+        $imgpath = $reqTask->imgpath;
+        //fileから画像を取得
+        $path = public_path($imgpath);
+        $img=Image::make($path);
+        //フィルターかける　暗くする　角度つけた文字列をかける
+        $img->brightness(-50);
+        $img->text('Completed', 115, 100, function ($font) {
+            $font->file('fonts/SawarabiGothic-Regular.ttf');
+            $font->size(50);
+            $font->align('center');
+            $font->color('#FF0000');
+            $font->angle(30);  
+        });
+
+        $path = 'image/' . date('Y-m-d H:m:s') . '.jpg';
+        $save = public_path($path);
+        //save
+        $img->save($save);
         //db保存
         $task->achieveTask($request, $path);
         return redirect('/mypage');

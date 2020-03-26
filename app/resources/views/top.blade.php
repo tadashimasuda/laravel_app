@@ -29,15 +29,9 @@
                     <img src="image/user_pic.jpg" alt="" class="user_pic">
                     <p class="user_name">Tanaka</p>
                 </div>
-                <img src="image/{{ $task->imgpath }}" alt="" class="content">
+                <img src="{{ $task->imgpath }}" alt="" class="content">
             </li>
             @endforeach
         </ul>
     </div>
 @endsection
-
-<!-- <h1>hello world</h1>
-    @foreach($tasks as $task)
-        <p>{{ $task->content }}</p>
-        <img src="/image/{{ $task->imgpath }}" alt="">
-    @endforeach -->
