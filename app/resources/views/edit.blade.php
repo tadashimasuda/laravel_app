@@ -7,6 +7,16 @@
 @endsection
 
 @section('main')
+<div id="list">
+    <ul>
+        <li><a href="/top">トップページへ</a></li>
+        <li><a href="/mypage">Mypageへ</a></li>
+        <li><a href="/logout">ログアウト</a></li>
+    </ul>
+</div>
+<div id="pop">
+    ごめん、あとでやる。
+</div>
 <h1 id="edit-h1">編集する</h1>
 <form action="{{ route('tasks.update') }}" method="POST">
     @csrf

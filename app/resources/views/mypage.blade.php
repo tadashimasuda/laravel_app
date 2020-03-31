@@ -9,20 +9,24 @@
 @section('main')
 <div id="mypage_top">
     <h1>My page</h1>
-    <h2>達成度 : ◯％</h2>
+    <h2>達成度 : {{ $percent }}%</h2>
 </div>
 <div id="mypage-contents">
+    @if(Auth::check())
+    <!--ミドルウェアを通しているのでいらないかも-->
     <div id="mypage-user">
         <img src="image/user_pic.jpg" alt="" class="user_pic">
-        <p class="user_name">Tanaka</p>
+        <p>{{ $user->name }}</p>
     </div>
+    @endif
+
     <div id="mypage-content">
         <ul>
             @foreach($tasks as $task)
             <li>
                 <img src="{{ $task->imgpath }}" alt="" class="content">
                 <!-- ifでdone判定　btnの追加か否か -->
-                @if($task->done ==0)
+                @if($task->done == 0)
                 <div id="mypage-btn">
                     <a href="/edit/{{$task->task_id}}" id="edit">編集</a>
                     <form action="/task/achieve" method="POST">
@@ -37,7 +41,8 @@
             @endforeach
 
         </ul>
-        <span>＋</span>
+       
     </div>
+    <span>＋</span>
 </div>
 @endsection

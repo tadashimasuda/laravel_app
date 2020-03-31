@@ -7,6 +7,16 @@
 @endsection
 
 @section('main')
+<div id="list">
+    <ul>
+        <li><a href="/top">トップページへ</a></li>
+        <li><a href="/mypage">Mypageへ</a></li>
+        <li><a href="/logout">ログアウト</a></li>
+    </ul>
+</div>
+<div id="pop">
+    ごめん、あとでやる。
+</div>
 <h1 id="create-edit-h1">投稿する</h1>
 
 <form action="{{ route('tasks.store') }}" method="POST">
