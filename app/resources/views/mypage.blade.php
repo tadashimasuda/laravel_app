@@ -7,6 +7,13 @@
 @endsection
 
 @section('main')
+<div id="list">
+    <ul>
+        <li><a href="/top">トップページへ</a></li>
+        <li><a href="/mypage">Mypageへ</a></li>
+        <li><a href="/logout">ログアウト</a></li>
+    </ul>
+</div>
 <div id="mypage_top">
     <h1>My page</h1>
     <h2>達成度 : {{ $percent }}%</h2>
@@ -28,12 +35,15 @@
                 <!-- ifでdone判定　btnの追加か否か -->
                 @if($task->done == 0)
                 <div id="mypage-btn">
-                    <a href="/edit/{{$task->task_id}}" id="edit">編集</a>
+                    <form action="/edit/{{$task->task_id}}" id="edit" method="get">
+                        <input type="submit" id="edit" value="編集">
+                    </form>
+                    <!-- <a href="/edit/{{$task->task_id}}" id="edit">編集</a> -->
                     <form action="/task/achieve" method="POST">
                         @csrf
                         @method("PUT")
                         <input type="hidden" name="task_id" value="{{$task->task_id}}">
-                        <input type="submit" value="完了">
+                        <input type="submit" id="done" value="完了">
                     </form>
                 </div>
                 @endif
@@ -43,6 +53,6 @@
         </ul>
        
     </div>
-    <span>＋</span>
+    <div id="page_create"><a href="/task/create">+</a>
 </div>
 @endsection

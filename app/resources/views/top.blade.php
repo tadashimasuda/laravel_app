@@ -23,7 +23,7 @@
     </div>
     <div id="top-form">
         <div id="btn">
-            <a href="#" id="btn-twitter">Twitterでログイン</a>
+            <a href="/login/twitter" id="btn-twitter">Twitterでログイン</a>
             <a href="{{ route('login') }}" id="btn-account">アカウントでログイン</a>
         </div>
         <a href="/register" id="new_account">アカウントの新規作成はこちら</a>

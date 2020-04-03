@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsersTable extends Migration
+class AddUsersTwitterTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,9 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('email')->unique()->nullable();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password')->nullable();
-            $table->rememberToken();
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            //
+            
 
             $table->string('twitter_id')->unique()->nullable();
             $table->string('avatar')->nullable();
@@ -35,6 +30,11 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::table('users', function (Blueprint $table) {
+            //
+            $table->string('email')->unique()->nullable()->change();
+            $table->timestamp('email_verified_at')->nullable()->change();
+            $table->string('password')->nullable()->change();
+        });
     }
 }

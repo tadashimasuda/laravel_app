@@ -28,6 +28,13 @@ Route::get('/task/create','TasksController@create')->middleware('auth');
 Route::post('task/create','TasksController@store')->name('tasks.store');
 Route::post('task/update','TasksController@update')->name('tasks.update');
 Route::put('task/achieve','TasksController@achieve')->name('tasks.achieve');
-Auth::routes();
 
+Auth::routes();
+Route::get('login/twitter', 'Auth\LoginController@redirectToTwitterProvider');
+Route::get('login/twitter/callback', 'Auth\LoginController@handleTwitterProviderCallback');
+// ログアウトURL
+Route::get('auth/twitter/logout', 'Auth\TwitterController@logout');
+
+// logout
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get('/home', 'HomeController@index')->name('home');

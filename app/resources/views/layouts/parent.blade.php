@@ -36,7 +36,7 @@
 
     <header>
         <div id="inner">
-            <h1>mokuhyo</h1>
+            <a href="/top"><h1>mokuhyo</h1></a>
             <img src="image/icon.png" height="50px" width="50px" alt="" id="menuIcon">
         </div>
 

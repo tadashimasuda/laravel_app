@@ -72,13 +72,14 @@
                         <label for="password-confirm" class="passConfirm">{{ __('パスワード(再入力)') }}</label>
                     </td>
                     <td class="form-row">
-                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                        <input id="password-confirm" type="password" name="password_confirmation" required autocomplete="new-password">
                     </td>
                 </tr>
-                <tr>
-                    <button type="submit" class="btnForm">{{('登録')}}</button>
-                </tr>
+
             </table>
+        
+                    <button type="submit" class="btnForm">{{('登録')}}</button>
+
         </div>
     </form>
 </div>

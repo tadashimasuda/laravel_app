@@ -71,6 +71,9 @@ div#inner{
   margin: 0 auto;
 
 }
+header a{
+    text-decoration: none;
+}
 header h1{
     font-family: "Arial Rounded MT Bold";
     font-weight: normal;
@@ -82,8 +85,9 @@ header h1{
 }
 img#menuIcon{
     float: right;
-    margin-top: 10px;
+    margin-top: 5px;
     margin-left: 5px;
+    margin-right: 10px;
 }
 
 
@@ -239,7 +243,6 @@ p.user_name{
 div#top_login_top{
     padding-top: 100px;
     text-align: center;
-
 }
 div#top_login_top h1{
     font-family: "Hiragino Maru Gothic ProN";
@@ -255,6 +258,7 @@ button#top_login_top_btn{
     border: 1px solid #707070;
     margin-top: 100px;
     margin-bottom: 10px;
+    border-radius: 2em;
 }
 div#top_login_center-title h3{ 
     margin-top: 15px;
@@ -307,7 +311,7 @@ div#mypage-btn{
     justify-content: flex-end;
     text-decoration: none;
 }
-div#mypage-btn a{
+div#mypage-btn a,input#done,input#edit{
     display: inline-block;
     width: 44.66px;
     height: 22px;
@@ -320,15 +324,38 @@ div#mypage-btn a{
     color: #ffffff;
     line-height: 22px;
 }
-a#edit{
+input#edit{
     background: #e54616;
 }
-a#done{
+input#done{
     background: #1616e5;
+    padding:10px 0;
+    line-height: 2px;
+    margin-left: 10px;
 }
-span{
-    float: right;
-    margin-right: 5px;
+div#page_create{
+    height: 60px;
+    width: 60px;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+div#page_create a{
+    font-weight: bold;
+    font-size: 40px;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    display: block;
+    background-color: #fff502;
+    text-align: center;
+    line-height: 60px;
+    text-decoration: none;
+}
+div#page_create > a:hover,a:active,a:no-color-change{
+    color: black;
 }
 /* 
 =======================
@@ -336,21 +363,19 @@ edit.blade.php
 =======================
 */
 
-h1#create-edit-h1{
+h1#create-edit-h1,h1#edit-h1{
     text-align: center;
     font-family: "Arial Rounded MT Bold";
-    font-weight: normal;
     font-size: 32px;
-    text-align: center;
     color: #000;
     padding-top: 30px;
 }
-ul#create-edit-form{
+ul#create-edit-form,ul#edit-form{
     text-align: center;
     min-height: 1024px;
 }
 
-input#create-edit-text{
+input#create-edit-text,input#edit-text{
     width: 276px;
     max-width: 100%;
     height: 158px;
@@ -358,7 +383,7 @@ input#create-edit-text{
     border: 1px solid #707070;
     margin-top: 30px;
 }
-input#create-edit-btn{
+input#create-edit-btn,input#edit-btn{
     width: 207.18px;
     height: 56.41px;
     border-radius: 21px;
@@ -394,8 +419,10 @@ td.form-row{
     text-align: center;
 }
 button.btnForm{
-   margin-left: 115px;
-   margin-bottom: 50px;
+   margin-bottom: 100px;
+   margin: 0 auto;
+   width: 80px;
+   margin-left: 100px;
 }
 
 h1#formh1{
@@ -410,11 +437,15 @@ h1#formh1{
     login.blade.php
 ===========================
 */
-div.form-login form input{
+div.form-login{
+    width: 140px;
     margin: 0 auto;
-    width: 300px;
+    padding-top: 50px;
 }
-table.register{
-    display:block;
+div.form-login　td{
     text-align: center;
+    
+}
+div.form-login input{
+    border-radius: 10px;
 }

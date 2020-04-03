@@ -11,10 +11,9 @@
     ごめん、あとでやる。
 </div>
 <div class="form-login">
-    <table>
         <form method="POST" action="{{ route('login') }}">
             @csrf
-
+            <table>
             <tr>
                 <th><label for="email">メールアドレス</label></th>
             </tr>
@@ -51,8 +50,10 @@
                     <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                 </th>
             </tr>
-
+            <tr>
+                <th><button>ログインする</button></th>
+            </tr>
+            </table>
         </form>
-    </table>
 </div>
 @endsection

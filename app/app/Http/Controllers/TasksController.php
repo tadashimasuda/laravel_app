@@ -32,7 +32,7 @@ class TasksController extends Controller
         $tasks = new Task();
         list($task,$acvCount,$count)=$tasks->getTask($userId);
         if($acvCount != 0){
-            $percent = $acvCount/$count * 100;
+            $percent = (1-($acvCount/$count))* 100;
         }else{
             $percent=0;
         }        
